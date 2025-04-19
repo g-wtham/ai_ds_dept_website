@@ -1,0 +1,364 @@
+/* --- Skeuo-Brutalist-Lo-fi Theme Variables --- */
+:root {
+    --bg-main: #fdf6e4;
+    --bg-card: #ffffff;
+    --text-main: #1a1a1a;
+    --text-secondary: #555555;
+    --accent-color: #e58d49; /* Tan / Orange accent */
+    --border-color: #1a1a1a;
+    --shadow-color: #aaaaaa;
+    --hard-shadow-color: var(--border-color);
+    --font-primary: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --border-thickness: 2px;
+    --card-shadow: 5px 5px 0px var(--hard-shadow-color);
+    --button-shadow: 3px 3px 0px var(--hard-shadow-color);
+    --button-shadow-hover: 6px 6px 0px var(--hard-shadow-color);
+    --button-shadow-active: 1px 1px 0px var(--hard-shadow-color);
+    --card-radius: 6px;
+    --button-radius: 4px;
+    --hover-lift: -4px;
+    --hover-shadow-offset: 8px;
+}
+
+/* --- Base Styles --- */
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    border-top: 5px solid var(--border-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--text-main);
+}
+
+/* --- Header & Navigation --- */
+.navbar-custom {
+    background-color: var(--accent-color);
+    position: sticky;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    border-bottom: var(--border-thickness) solid var(--border-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.navbar-custom .navbar-brand img {
+    max-height: 35px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-custom .navbar-brand:hover img {
+    transform: scale(1.05);
+}
+
+.navbar-custom .nav-link {
+    color: var(--text-secondary);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+.navbar-custom .nav-link:hover {
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.navbar-custom .nav-link.active {
+    color: var(--text-main);
+    border-bottom-color: var(--accent-color);
+}
+
+.navbar-toggler {
+    border: var(--border-thickness) solid var(--border-color);
+    color: var(--text-main);
+    font-size: 1.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--button-radius);
+}
+.navbar-toggler:focus { box-shadow: none; }
+.navbar-toggler .fa-bars { display: block; }
+
+.offcanvas-custom {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    border-left: var(--border-thickness) solid var(--border-color);
+}
+.offcanvas-header {
+    border-bottom: var(--border-thickness) solid var(--border-color);
+    padding: 1rem 1.5rem;
+}
+.offcanvas-title { color: var(--text-main); font-weight: 700; }
+.btn-close { background: none; opacity: 1; font-size: 1.5rem; font-weight: bold; color: var(--text-main); padding: 0; }
+.btn-close:hover { color: var(--accent-color); }
+.offcanvas-body .nav-link { font-size: 1.1rem; margin-bottom: 0.5rem; display: block; border-bottom: none; }
+.offcanvas-body .nav-link.active { color: var(--bg-card); font-weight: 700; }
+
+/* --- Hero Section --- */
+#home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    padding: 80px 20px;
+    text-align: center;
+    border-bottom: var(--border-thickness) dashed var(--border-color);
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+.hero-content { max-width: 750px; position: relative; z-index: 1; }
+.hero-content h1, .hero-content .subtitle, .hero-content .cta-button {
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+}
+.hero-content h1 { font-size: clamp(2.8rem, 8vw, 4.5rem); font-weight: 800; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.15; text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1); }
+.hero-content .subtitle { font-size: clamp(1.1rem, 3.5vw, 1.4rem); color: var(--text-secondary); margin-bottom: 3rem; font-weight: 400; }
+.cta-button { background-color: var(--accent-color); color: var(--bg-card); padding: 14px 35px; border-radius: var(--button-radius); font-weight: 700; font-size: 1.1rem; border: var(--border-thickness) solid var(--border-color); box-shadow: var(--button-shadow); transition: background-color 0.2s ease, box-shadow 0.15s ease, transform 0.1s ease; text-decoration: none; display: inline-block; }
+.cta-button:hover { color: var(--bg-card); background-color: hsl(31, 78%, 59%); /* Using HSL for darken */ box-shadow: var(--button-shadow-hover); transform: translate(-3px, -3px); text-decoration: none; }
+.cta-button:active { box-shadow: var(--button-shadow-active); transform: translate(1px, 1px); }
+.cta-button .fa-arrow-right { margin-left: 10px; }
+
+/* --- General Section Styling --- */
+section {
+    padding: 70px 0;
+    position: relative;
+    overflow: hidden; /* Keep hiding elements for GSAP animation */
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.4rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+    border-bottom: 4px solid var(--border-color);
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* --- Base Card Styling (For GSAP) --- */
+.ai-card, .club-card, .gallery-item, .video-container, .faculty-card {
+    background-color: var(--bg-card);
+    border-radius: var(--card-radius);
+    margin-bottom: 30px;
+    border: var(--border-thickness) solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    opacity: 0; /* Initial state for GSAP */
+    transform: translateY(40px); /* Start slightly lower */
+    will-change: transform, opacity;
+}
+/* Basic Hover */
+.ai-card:hover, .club-card:hover, .gallery-item:hover, .video-container:hover, .faculty-card:hover {
+     transform: translateY(var(--hover-lift));
+     box-shadow: var(--hover-shadow-offset) var(--hover-shadow-offset) 0px var(--hard-shadow-color);
+     z-index: 10;
+     position: relative;
+}
+
+/* --- Specific Card Styles --- */
+/* AI Card */
+.ai-card { padding: 25px; height: 100%; }
+.ai-card .icon { font-size: 2.5rem; margin-bottom: 15px; color: var(--accent-color); display: block; text-align: center; transition: transform 0.3s ease; }
+.ai-card:hover .icon { transform: scale(1.15); }
+.ai-card h3 { margin-bottom: 10px; color: var(--text-main); font-size: 1.3rem; font-weight: 700; }
+.ai-card p { font-size: 0.95rem; color: var(--text-secondary); }
+/* Mission/Vision Card List */
+#mission-vision .ai-card { padding: 25px; height: 100%; }
+#mission-vision .ai-card ul { list-style: none; padding-left: 0; }
+#mission-vision .ai-card li { margin-bottom: 10px; padding-left: 25px; position: relative; }
+#mission-vision .ai-card li i { position: absolute; left: 0; top: 4px; color: var(--accent-color); font-size: 1rem; }
+#mission-vision .ai-card li strong { color: var(--text-main); }
+/* Video Container */
+.video-container { position: relative; padding: 0; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; }
+.video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: calc(var(--card-radius) - var(--border-thickness)); }
+/* Gallery Item */
+.gallery-item { padding: 10px; height: auto; cursor: pointer; overflow: hidden; }
+.gallery-item img, .gallery-item iframe { display: block; width: 100%; height: 260px; object-fit: cover; border: none; border-radius: calc(var(--card-radius) - var(--border-thickness) - 5px); transition: transform 0.3s ease; }
+.gallery-item:hover img { transform: scale(1.05); }
+/* Club Card */
+.club-card { padding: 25px; height: 100%; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 280px; padding-top: 35px; padding-bottom: 35px; }
+.club-card img { width: 100px; height: 100px; object-fit: contain; border-radius: 0; margin-bottom: 25px; background-color: #f0f0f0; padding: 8px; border: var(--border-thickness) solid var(--border-color); transition: transform 0.3s ease; }
+.club-card:hover img { transform: scale(1.1); }
+.club-card h3 { color: var(--text-main); font-size: 1.4rem; margin-bottom: 0; }
+
+/* --- Faculty Card Styles --- */
+.faculty-card {
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.faculty-card .image {
+     aspect-ratio: 4 / 3;
+     overflow: hidden;
+     border-bottom: var(--border-thickness) solid var(--border-color);
+     background-color: #e0e0e0; /* Placeholder bg */
+     display: flex; /* For placeholder text centering */
+     align-items: center;
+     justify-content: center;
+}
+.faculty-card .image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.3s ease;
+    /* Styling for alt text if image fails */
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+/* Hide alt text if image loads successfully */
+.faculty-card .image img[src]:not([src=""]) {
+    font-size: 0;
+    color: transparent;
+}
+.faculty-card:hover .image img {
+    transform: scale(1.05);
+}
+.faculty-card .context {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.faculty-card .context h5 { font-size: 1.25rem; margin-bottom: 5px; color: var(--text-main); }
+.faculty-card .context span { display: block; font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 2px; }
+.faculty-card .context span.role { font-weight: 600; }
+.faculty-card .context span.department { font-style: italic; margin-bottom: 15px; }
+.faculty-card .context a { margin-top: auto; font-weight: 600; font-size: 0.9rem; color: var(--accent-color); text-decoration: underline; }
+.faculty-card .context a:hover { color: var(--text-main); }
+.faculty-card .context a i { margin-left: 5px; transition: transform 0.2s ease; display: inline-block; /* Needed for transform */}
+.faculty-card .context a:hover i { transform: translateX(3px); }
+
+/* --- AI Avatar Section Styles --- */
+#avatar-section {
+    padding: 80px 0;
+    background-color: #e9e0d2;
+    border-top: var(--border-thickness) dashed var(--border-color);
+    border-bottom: var(--border-thickness) dashed var(--border-color);
+    text-align: center;
+}
+.avatar-container {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: auto;
+    /* Base styles for GSAP animation */
+    opacity: 0;
+    transform: translateY(40px);
+    will-change: transform, opacity;
+}
+#ai-avatar-svg { width: 100%; height: 100%; display: block; }
+#ai-avatar-svg .avatar-bg { fill: var(--bg-card); }
+#ai-avatar-svg .avatar-outline { stroke: var(--border-color); stroke-width: 3px; fill: none; }
+#ai-avatar-svg .avatar-eyesocket { fill: var(--bg-main); }
+#ai-avatar-svg .avatar-pupil { fill: var(--accent-color); stroke: var(--border-color); stroke-width: 1px; }
+#ai-avatar-svg .avatar-detail { fill: var(--text-secondary); }
+
+/* --- Lightbox --- */
+.lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); display: flex; justify-content: center; align-items: center; z-index: 1050; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0s linear 0.3s; }
+.lightbox.show { opacity: 1; visibility: visible; transition: opacity 0.3s ease; }
+.lightbox img { max-width: 90%; max-height: 85%; border-radius: 0; border: 4px solid var(--bg-card); box-shadow: 0 0 0 10px var(--border-color), 0 0 40px rgba(0, 0, 0, 0.5); }
+.lightbox .close-btn { position: absolute; top: 20px; right: 30px; font-size: 3rem; color: var(--bg-card); cursor: pointer; transition: color 0.2s ease, transform 0.2s ease; line-height: 1; font-weight: bold; text-shadow: 3px 3px 0 var(--border-color); }
+.lightbox .close-btn:hover { color: var(--accent-color); transform: rotate(90deg); }
+
+/* --- Footer --- */
+.footer-custom { background-color: #e9e0d2; padding: 50px 0 20px; border-top: var(--border-thickness) solid var(--border-color); color: var(--text-secondary); font-size: 0.9rem; }
+.footer-custom .footer-logo img { max-height: 40px; margin-bottom: 15px; }
+.footer-custom h5 { color: var(--text-main); margin-bottom: 15px; font-size: 1.1rem; font-weight: 700; }
+.footer-custom ul { list-style: none; padding: 0; } .footer-custom ul li { margin-bottom: 8px; }
+.footer-custom ul li a { color: var(--text-secondary); font-weight: 500; text-decoration: underline; }
+.footer-custom ul li a:hover { color: var(--accent-color); }
+.footer-custom .social-icons a { color: var(--text-secondary); font-size: 1.8rem; margin: 0 10px; transition: color 0.2s ease, transform 0.2s ease; display: inline-block; }
+.footer-custom .social-icons a:hover { color: var(--accent-color); transform: scale(1.15); }
+.footer-bottom { border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 30px; text-align: center; font-size: 0.85rem; color: var(--text-secondary); }
+.footer-bottom a { color: var(--text-main); font-weight: 700; text-decoration: underline; }
+.footer-bottom a:hover { color: var(--accent-color); }
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 991px) {
+    .hero-content h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+    .section-title { font-size: 2rem; }
+    /* Revert hover effect fully to basic lift/shadow on medium screens and below */
+    .ai-card:hover, .club-card:hover, .gallery-item:hover, .video-container:hover, .faculty-card:hover {
+        transform: translateY(var(--hover-lift));
+        box-shadow: var(--hover-shadow-offset) var(--hover-shadow-offset) 0px var(--hard-shadow-color);
+    }
+    .ai-card:hover .icon { transform: scale(1.1); } /* Simpler icon hover */
+    .club-card:hover img { transform: scale(1.05); } /* Simpler logo hover */
+    .faculty-card:hover .image img { transform: scale(1.03); } /* Slightly less scale */
+    .faculty-card .context a:hover i { transform: none; } /* Disable icon move */
+}
+
+@media (max-width: 767px) {
+    body { border-top-width: 3px; }
+    section { padding: 50px 0; }
+    /* Base card styles for small screens */
+    .ai-card, .club-card, .gallery-item, .video-container, .faculty-card {
+        box-shadow: 3px 3px 0px var(--hard-shadow-color);
+        /* GSAP initial state */
+         transform: translateY(30px); /* Slightly less initial offset */
+         opacity: 0;
+    }
+    /* Hover for small screens */
+    .ai-card:hover, .club-card:hover, .gallery-item:hover, .video-container:hover, .faculty-card:hover {
+        box-shadow: 5px 5px 0px var(--hard-shadow-color);
+        transform: translate(-2px,-2px);
+    }
+
+    /* Specific adjustments for small screens */
+    .ai-card, .club-card { padding: 20px; }
+    .gallery-item { padding: 8px; }
+    #gallery .gallery-item img, #gallery .gallery-item iframe { height: 220px; border-radius: calc(var(--card-radius) - var(--border-thickness) - 3px); }
+    .video-container { padding-bottom: 56.25%; } /* Ensure aspect ratio */
+    .faculty-card .image { aspect-ratio: 1 / 1; } /* Make images square on mobile */
+    .faculty-card .context { padding: 15px; }
+    .faculty-card .context h5 { font-size: 1.1rem; }
+    .faculty-card .context span { font-size: 0.85rem; }
+    .faculty-card .context a { font-size: 0.85rem; }
+
+    .footer-custom { text-align: center; padding-top: 30px; }
+    .footer-custom .social-icons { margin-top: 20px; justify-content: center; display: flex; }
+    .footer-custom .col-md-4 { margin-bottom: 30px; }
+    .footer-custom .footer-logo { display: inline-block; }
+    .footer-bottom { margin-top: 20px; padding-top: 15px; }
+    #home { padding: 60px 15px; }
+    .hero-content h1 { font-size: clamp(2rem, 10vw, 2.8rem); }
+    .hero-content .subtitle { font-size: clamp(1rem, 4vw, 1.2rem); }
+    .cta-button { padding: 12px 25px; font-size: 1rem;}
+    #avatar-section { padding: 60px 0; }
+    .avatar-container { width: 120px; } /* Smaller avatar on mobile */
+}
